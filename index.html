@@ -319,36 +319,7 @@
         <div class="content has-text-justified">
           <!-- TODO: Replace with your paper abstract -->
           <p>
-           Text-guided image editing allows users to change specific aspects
-of an image using natural language instructions. Although general
-diffusion-based editors can perform well for general images, they
-often struggle with specialized categories such as fashion, where
-details and localization matter.
-In this project, we explore whether fine-tuning a model on
-domain-specific data can improve edit accuracy and visual quality
-
-for fashion images. Using the DeepFashion2 dataset, we automat-
-ically construct training triplets of the structure (source image,
-
-instruction, target image) by pairing images of the same person
-wearing different outfits and generating edit instructions using the
-caption differences. We then fine tune using Selective parameter
-efficient tuning. Instead of updating 860M+ UNet parameters, we
-
-freeze the full UNet and unfreeze only a targeted subset of lay-
-ers responsible for text image conditioning and garment details
-
-specifically. This exposes 23.84% of the UNet, allowing the model
-to learn domain specific transformations without overfitting. We
-additionally implemented mask aware training using DeepFashion2
-segmentation masks, ensuring edits remained localized to garments
-while preserving the background.
-
-We evaluate the model on DeepFashion2 and unseen FashionPe-
-dia [Zhu et al., 2019] images, where the experiments show that this
-
-approach improves garment realism, edit localization, and texture
-fidelity compared to the pretrained baseline.
+           Text-guided image editing allows users to change specific aspects of an image using natural language instructions. Although general diffusion-based editors can perform well for general images, they often struggle with specialized categories such as fashion, where details and localization matter. In this project, we explore whether fine-tuning a model on domain-specific data can improve edit accuracy and visual quality for fashion images. Using the DeepFashion2 dataset, we automatically construct training triplets of the structure (source image, instruction, target image) by pairing images of the same person wearing different outfits and generating edit instructions using the caption differences. We then fine tune using Selective parameter efficient tuning. Instead of updating 860M+ UNet parameters, we freeze the full UNet and unfreeze only a targeted subset of layers responsible for text image conditioning and garment details specifically. This exposes 23.84% of the UNet, allowing the model to learn domain specific transformations without overfitting. We additionally implemented mask aware training using DeepFashion2 segmentation masks, ensuring edits remained localized to garments while preserving the background. We evaluate the model on DeepFashion2 and unseen FashionPedia [Zhu et al., 2019] images, where the experiments show that this approach improves garment realism, edit localization, and texture fidelity compared to the pretrained baseline.
           </p>
         </div>
       </div>
