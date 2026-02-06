@@ -36,7 +36,7 @@ body {
   background-color: var(--background-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  zoom:87%;
+  zoom:95%;
 }
 
 
@@ -280,7 +280,7 @@ body {
 .results-carousel video {
   margin: 0;
   border-radius: var(--border-radius);
-  width: 100%;
+  width: 95%;
   height: auto;
 }
 
