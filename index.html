@@ -406,8 +406,23 @@
 </section>
 <!-- End image carousel -->
 
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Summary</h2>
+        <div class="content has-text-justified">
+          <!-- TODO: Replace with your paper abstract -->
+          <p>
+           FashionDiffusion is a generative modeling project that explores the use of diffusion models to create novel fashion designs conditioned on visual and stylistic attributes. We curated and preprocessed a dataset of apparel images, then trained a denoising diffusion model to learn the underlying distribution of garment structures, colors, and textures. The system enables controlled generation of new clothing concepts by guiding the model with specific prompts or attribute embeddings, demonstrating how modern generative techniques can support creative workflows and rapid design prototyping. This project highlights the application of deep learning, computer vision, and large-scale data preprocessing in a real-world, creative domain.
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
 
-<!-- Paper poster -->
+    <!-- Paper poster -->
 <section class="hero is-small is-light">
   <div class="hero-body">
     <div class="container">
@@ -421,25 +436,6 @@
     </div>
   </section>
 <!--End paper poster -->
-
-<!-- Paper abstract -->
-<section class="section hero is-light">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <!-- TODO: Replace with your paper abstract -->
-          <p>
-           Text-guided image editing allows users to change specific aspects of an image using natural language instructions. Although general diffusion-based editors can perform well for general images, they often struggle with specialized categories such as fashion, where details and localization matter. In this project, we explore whether fine-tuning a model on domain-specific data can improve edit accuracy and visual quality for fashion images. Using the DeepFashion2 dataset, we automatically construct training triplets of the structure (source image, instruction, target image) by pairing images of the same person wearing different outfits and generating edit instructions using the caption differences. We then fine tune using Selective parameter efficient tuning. Instead of updating 860M+ UNet parameters, we freeze the full UNet and unfreeze only a targeted subset of layers responsible for text image conditioning and garment details specifically. This exposes 23.84% of the UNet, allowing the model to learn domain specific transformations without overfitting. We additionally implemented mask aware training using DeepFashion2 segmentation masks, ensuring edits remained localized to garments while preserving the background. We evaluate the model on DeepFashion2 and unseen FashionPedia [Zhu et al., 2019] images, where the experiments show that this approach improves garment realism, edit localization, and texture fidelity compared to the pretrained baseline.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End paper abstract -->
-
 
 <!--BibTex citation -->
 <!--  <section class="section" id="BibTeX">
