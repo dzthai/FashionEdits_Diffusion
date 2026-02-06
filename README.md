@@ -1,77 +1,33 @@
-# Academic Project Page Template
+This project contains 3 main parts implemented using Google Colab for our main analysis (within the ProjectCode folder):
 
-> **Update (September 2025)**: This template has been modernized with better design, SEO, and mobile support. For the original version, see the [original-version branch](https://github.com/eliahuhorwitz/Academic-project-page-template/tree/original-version).
-
-A clean, responsive template for academic project pages.
-
-
-Example project pages built using this template are:
-- https://horwitz.ai/probex
-- https://vision.huji.ac.il/probegen
-- https://horwitz.ai/mother
-- https://horwitz.ai/spectral_detuning
-- https://vision.huji.ac.il/ladeda
-- https://vision.huji.ac.il/dsire
-- https://horwitz.ai/podd
-- https://dreamix-video-editing.github.io
-- https://horwitz.ai/conffusion
-- https://horwitz.ai/3d_ads/
-- https://vision.huji.ac.il/ssrl_ad
-- https://vision.huji.ac.il/deepsim
+- Final_Project.ipynb: All components needed to load the dataset, run our model, fine-tune the model on the fashion dataset, and achieve the results as described in the final report.
+- Ablation.ipynb: All components needed to load the dataset, run our model, fine-tune the model on the fashion dataset, but instead – run the ablation analysis for our final report.
+- BoundingBox_Experiment1.ipynb: All components needed to load the dataset, run our model and fine-tune based on hierarchical bounding box loss calculation.
 
 
+## Requirements: All dependencies are automatically installed in Colab via the notebooks.
+- If running locally: pip install torch torchvision matplotlib numpy Pillow diffusers
+- We ran everything using a Google Colab T4 environment, please make sure to use GPU on this environment because epochs will take a long time to train. On average, epochs take approximately 20-40 minutes to train.
 
-## Start using the template
-To start using the template click on `Use this Template`.
+## Open the notebooks in Google Colab/any IDE:
+- Run the cells sequentially, making sure to not skip on any pip installs, imports, or data loading procedures.
+- Visualize the baseline InstructPix2Pix model
+- Play around with different URLs and prompts if you’d like!
+- Load the FashionPedia dataset
+- Create the functions for metrics, CLIP Score, Directional Similarity
 
-The template uses html for controlling the content and css for controlling the style. 
-To edit the websites contents edit the `index.html` file. It contains different HTML "building blocks", use whichever ones you need and comment out the rest.  
+## Model Preparation
+- You can change any hyperparameters at this point, but they will affect runtime length
+- Visualize initial output
 
-**IMPORTANT!** Make sure to replace the `favicon.ico` under `static/images/` with one of your own, otherwise your favicon is going to be a dreambooth image of me.
+## Generating Triplets for Fine-Tuning
 
-## What's New
+## Training
+- This part will take very long, and needs GPUs. Likely to estimate it will take 1-2 hours at a minimum!
 
-- Modern, clean design with better mobile support
-- Improved SEO with proper meta tags and structured data
-- Performance improvements (lazy loading, optimized assets)
-- More Works dropdown
-- Copy button for BibTeX citations
-- Better accessibility
+## Evaluation
+- Evaluate the output on seen data (DeepFashion), and unseen data with backgrounds (FashionPedia)
 
-## Components
-
-- Teaser video
-- Image carousel
-- YouTube video embedding
-- Video carousel
-- PDF poster viewer
-- BibTeX citation
-
-## Customization
-
-The HTML file has TODO comments showing what to replace:
-
-- Paper title, authors, institution, conference
-- Links (arXiv, GitHub, etc.)
-- Abstract and descriptions  
-- Videos, images, and PDFs
-- Related works in the dropdown
-- Meta tags for SEO and social sharing
-
-### Meta Tags
-The template includes meta tags for better search engine visibility and social media sharing. These appear in the `<head>` section and help with:
-- Google Scholar indexing
-- Social media previews (Twitter, Facebook, LinkedIn)
-- Search engine optimization
-
-Create a 1200x630px social preview image at `static/images/social_preview.png`.
-
-## Tips
-
-- Compress images with [TinyPNG](https://tinypng.com)
-- Use YouTube for large videos (>10MB)  
-- Replace the favicon in `static/images/`
-- Works with GitHub Pages
 
 ## Acknowledgments
 Parts of this project page were adopted from the [Nerfies](https://nerfies.github.io/) page.
