@@ -177,66 +177,85 @@
     ]
   }
   </script>
+  
+  <style>
+    /* Fix for carousel overflow */
+    .carousel {
+      overflow: hidden !important;
+      max-width: 100%;
+    }
+    
+    .carousel .item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .carousel .item img {
+      max-width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+    
+    /* Fix spacing for equal contribution text */
+    .eql-cntrb {
+      display: block;
+      margin-top: 0.5rem !important;
+      margin-bottom: 0 !important;
+    }
+    
+    /* Remove extra whitespace after equal contribution */
+    .publication-links {
+      margin-top: 1.5rem !important;
+    }
+    
+    /* Ensure scroll-to-top button works */
+    .scroll-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+      background-color: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+      opacity: 0;
+      visibility: hidden;
+    }
+    
+    .scroll-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .scroll-to-top:hover {
+      background-color: #1d4ed8;
+      transform: translateY(-2px);
+    }
+    
+    /* Fix hero body spacing */
+    .hero.is-small .hero-body {
+      padding: 3rem 1.5rem;
+    }
+  </style>
 </head>
 <body>
 
 
   <!-- Scroll to Top Button -->
-  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
+  <button class="scroll-to-top" id="scrollTopBtn" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
     <i class="fas fa-chevron-up"></i>
   </button>
 
-
-  
-  <!-- More Works Dropdown 
-  <div class="more-works-container">
-    <button class="more-works-btn" onclick="toggleMoreWorks()" title="View More Works from Our Lab">
-      <i class="fas fa-flask"></i>
-      More Works
-      <i class="fas fa-chevron-down dropdown-arrow"></i>
-    </button>
-    <div class="more-works-dropdown" id="moreWorksDropdown">
-      <div class="dropdown-header">
-        <h4>More Works from Our Lab</h4>
-        <button class="close-btn" onclick="toggleMoreWorks()">
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
-      <div class="works-list">
-        <!-- TODO: Replace with your lab's related works
-        <a href="https://arxiv.org/abs/PAPER_ID_1" class="work-item" target="_blank">
-          <div class="work-info">
-            <!-- TODO: Replace with actual paper title 
-            <h5>Paper Title 1</h5>
-            <!-- TODO: Replace with brief description 
-            <p>Brief description of the work and its main contribution.</p>
-            <!-- TODO: Replace with venue and year 
-            <span class="work-venue">Conference/Journal 2024</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-
-        
-     <!--   <!-- TODO: Add more related works or remove extra items 
-        <a href="https://arxiv.org/abs/PAPER_ID_2" class="work-item" target="_blank">
-          <div class="work-info">
-            <h5>Paper Title 2</h5>
-            <p>Brief description of the work and its main contribution.</p>
-            <span class="work-venue">Conference/Journal 2023</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-        <a href="https://arxiv.org/abs/PAPER_ID_3" class="work-item" target="_blank">
-          <div class="work-info">
-            <h5>Paper Title 3</h5>
-            <p>Brief description of the work and its main contribution.</p>
-            <span class="work-venue">Conference/Journal 2023</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-      </div>
-    </div>
-  </div> -->
 
   <main id="main-content">
   <section class="hero">
@@ -250,163 +269,160 @@
               <!-- TODO: Replace with your paper authors and their personal links -->
               <span class="author-block">
                 <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">Sona Krishnan</a><sup>*</sup>,</span>
-                <span class="author-block">
-                  <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">David Thai</a><sup>*</sup>,</span>
-                  <span class="author-block">
-                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Vishali Vallioor</a><sup>*</sup>
+              <span class="author-block">
+                <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">David Thai</a><sup>*</sup>,</span>
+              <span class="author-block">
+                <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Vishali Vallioor</a><sup>*</sup>
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <!-- TODO: Replace with your institution and conference/journal info -->
+              <span class="author-block">Cornell Tech, CS5787 - Deep Learning<br>Cornell University 2026</span>
+            </div>
+            
+            <span class="eql-cntrb"><small><sup>*</sup>Indicates Equal Contribution</small></span>
+            
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- TODO: Update with your arXiv paper ID -->
+                <span class="link-block">
+                  <a href="https://drive.google.com/file/d/1Wu1wfJ47MpVQrrfOoPeYV8e42a2dy_st/view?usp=sharing" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fas fa-file-pdf"></i>
                   </span>
-                  </div>
-
-                  <div class="is-size-5 publication-authors">
-                    <!-- TODO: Replace with your institution and conference/journal info -->
-                    <span class="author-block">Cornell Tech, CS5787 - Deep Learning<br>Cornell University 2026</span>
-                  </div>
-                 <span class="eql-cntrb" style="margin-top: -40px;" ><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
-                  <div class="column has-text-centered" style="margin-top: -20px;">
-                    <div class="publication-links">
-                         <!-- TODO: Update with your arXiv paper ID -->
-                      <span class="link-block">
-                        <a href="https://drive.google.com/file/d/1Wu1wfJ47MpVQrrfOoPeYV8e42a2dy_st/view?usp=sharing" target="_blank"
-                        class="external-link button is-normal is-rounded is-dark">
-                        <span class="icon">
-                          <i class="fas fa-file-pdf"></i>
-                        </span>
-                        <span>Paper</span>
-                      </a>
-                    </span>
-
-                  <!-- TODO: Replace with your GitHub repository URL -->
-                  <span class="link-block">
-                    <a href="https://github.com/YOUR REPO HERE" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
-                    <span>Code</span>
+                  <span>Paper</span>
                   </a>
                 </span>
 
-          
+                <!-- TODO: Replace with your GitHub repository URL -->
+                <span class="link-block">
+                  <a href="https://github.com/YOUR REPO HERE" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+                </span>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
 
 <!-- Image carousel -->
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
-      <div id="results-carousel" class="carousel results-carousel" data-slides-to-show="1" data-slides-to-scroll="1" data-infinite="true" data-autoplay="true" data-autoplay-speed="5000" style="margin-top: -100px;">
-
+      <div id="results-carousel" class="carousel results-carousel">
         <!-- slides!!!!!!!! -->
-       <div class="item">
-        <!-- TODO: Replace with your research result images -->
-        <img src="static/images/slide1.jpg" alt="First research result visualization" loading="lazy"/>
-        <!-- TODO: Replace with description of this result -->
-        <h2 class="subtitle has-text-centered">
-          1/14
-        </h2>
-      </div>
-      
-      <div class="item">
-        <img src="static/images/slide2.jpg" alt="d research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-          2/14
-        </h2>
-      </div>
-
-       <div class="item">
-        <img src="static/images/slide3.jpg" alt="e research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-          3/14
-        </h2>
-      </div>
-
-       <div class="item">
-        <img src="static/images/slide4.jpg" alt="f research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-          4/14
-        </h2>
-      </div>
-
-       <div class="item">
-        <img src="static/images/slide5.jpg" alt="g research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-          5/14
-        </h2>
-      </div>
-
-       <div class="item">
-        <img src="static/images/slide6.jpg" alt="h research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-          6/14
-        </h2>
-      </div>
-
-       <div class="item">
-        <img src="static/images/slide7.jpg" alt="i research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-          7/14
-        </h2>
-      </div>
-
-       <div class="item">
-        <img src="static/images/slide8.jpg" alt="j research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-          8/14
-        </h2>
-      </div>
-
-       <div class="item">
-        <img src="static/images/slide9.jpg" alt="k research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-          9/14
-        </h2>
-      </div>
-
-       <div class="item">
-        <img src="static/images/slide10.jpg" alt="l research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-          10/14
-        </h2>
-      </div>
-
-       <div class="item">
-        <img src="static/images/slide11.jpg" alt="m research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-          11/14
-        </h2>
-      </div>
-
-       <div class="item">
-        <img src="static/images/slide12.jpg" alt="n research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-          12/14
-        </h2>
-      </div>
-
+        <div class="item">
+          <!-- TODO: Replace with your research result images -->
+          <img src="static/images/slide1.jpg" alt="First research result visualization" loading="lazy"/>
+          <!-- TODO: Replace with description of this result -->
+          <h2 class="subtitle has-text-centered">
+            1/14
+          </h2>
+        </div>
         
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/slide13.jpg" alt="b research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-         13/14
-       </h2>
-     </div>
-     <div class="item">
-      <!-- Your image here -->
-      <img src="static/images/slide14.jpg" alt="v research result visualization" loading="lazy"/>
-      <h2 class="subtitle has-text-centered">
-        14/14
-      </h2>
+        <div class="item">
+          <img src="static/images/slide2.jpg" alt="Second research result visualization" loading="lazy"/>
+          <h2 class="subtitle has-text-centered">
+            2/14
+          </h2>
+        </div>
+
+        <div class="item">
+          <img src="static/images/slide3.jpg" alt="Third research result visualization" loading="lazy"/>
+          <h2 class="subtitle has-text-centered">
+            3/14
+          </h2>
+        </div>
+
+        <div class="item">
+          <img src="static/images/slide4.jpg" alt="Fourth research result visualization" loading="lazy"/>
+          <h2 class="subtitle has-text-centered">
+            4/14
+          </h2>
+        </div>
+
+        <div class="item">
+          <img src="static/images/slide5.jpg" alt="Fifth research result visualization" loading="lazy"/>
+          <h2 class="subtitle has-text-centered">
+            5/14
+          </h2>
+        </div>
+
+        <div class="item">
+          <img src="static/images/slide6.jpg" alt="Sixth research result visualization" loading="lazy"/>
+          <h2 class="subtitle has-text-centered">
+            6/14
+          </h2>
+        </div>
+
+        <div class="item">
+          <img src="static/images/slide7.jpg" alt="Seventh research result visualization" loading="lazy"/>
+          <h2 class="subtitle has-text-centered">
+            7/14
+          </h2>
+        </div>
+
+        <div class="item">
+          <img src="static/images/slide8.jpg" alt="Eighth research result visualization" loading="lazy"/>
+          <h2 class="subtitle has-text-centered">
+            8/14
+          </h2>
+        </div>
+
+        <div class="item">
+          <img src="static/images/slide9.jpg" alt="Ninth research result visualization" loading="lazy"/>
+          <h2 class="subtitle has-text-centered">
+            9/14
+          </h2>
+        </div>
+
+        <div class="item">
+          <img src="static/images/slide10.jpg" alt="Tenth research result visualization" loading="lazy"/>
+          <h2 class="subtitle has-text-centered">
+            10/14
+          </h2>
+        </div>
+
+        <div class="item">
+          <img src="static/images/slide11.jpg" alt="Eleventh research result visualization" loading="lazy"/>
+          <h2 class="subtitle has-text-centered">
+            11/14
+          </h2>
+        </div>
+
+        <div class="item">
+          <img src="static/images/slide12.jpg" alt="Twelfth research result visualization" loading="lazy"/>
+          <h2 class="subtitle has-text-centered">
+            12/14
+          </h2>
+        </div>
+
+        <div class="item">
+          <img src="static/images/slide13.jpg" alt="Thirteenth research result visualization" loading="lazy"/>
+          <h2 class="subtitle has-text-centered">
+            13/14
+          </h2>
+        </div>
+        
+        <div class="item">
+          <img src="static/images/slide14.jpg" alt="Fourteenth research result visualization" loading="lazy"/>
+          <h2 class="subtitle has-text-centered">
+            14/14
+          </h2>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-</div>
 </section>
 <!-- End image carousel -->
 
@@ -420,24 +436,24 @@
           <!-- TODO: Replace with your paper abstract -->
           <p>
            FashionDiffusion is a generative modeling project that explores the use of diffusion models to create novel fashion designs conditioned on visual and stylistic attributes. We curated and preprocessed a dataset of apparel images, then trained a denoising diffusion model to learn the underlying distribution of garment structures, colors, and textures. The system enables controlled generation of new clothing concepts by guiding the model with specific prompts or attribute embeddings, demonstrating how modern generative techniques can support creative workflows and rapid design prototyping. This project highlights the application of deep learning, computer vision, and large-scale data preprocessing in a real-world, creative domain.
+          </p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 <!-- End paper abstract -->
 
-    <!-- Paper poster -->
+<!-- Paper poster -->
 <section class="hero is-small is-light">
   <div class="hero-body">
     <div class="container">
-
       <!-- TODO: Replace with your poster PDF -->
-      <iframe  src="static/pdfs/CS5787___Final_Project.pdf" width="100%" height="550">
-          </iframe>
-        
-      </div>
+      <iframe src="static/pdfs/CS5787___Final_Project.pdf" width="100%" height="550">
+      </iframe>
     </div>
-  </section>
+  </div>
+</section>
 <!--End paper poster -->
 
 <!--BibTex citation -->
@@ -459,31 +475,43 @@
 }</code></pre>
     </div>
 </section>
+-->
 <!--End BibTex citation --> 
 
   <footer class="footer">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-
-          <p>
-            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+              You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+              Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</footer>
+  </footer>
 
-<!-- Statcounter tracking code -->
-  
-<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+  <script>
+    // Scroll to top functionality
+    window.onscroll = function() {
+      const scrollBtn = document.getElementById("scrollTopBtn");
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        scrollBtn.classList.add("visible");
+      } else {
+        scrollBtn.classList.remove("visible");
+      }
+    };
 
-    <!-- End of Statcounter Code -->
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+  </script>
 
-  </body>
-  </html>
+</body>
+</html>
