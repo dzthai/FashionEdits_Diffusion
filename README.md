@@ -1,4 +1,4 @@
-This project contains 2 main parts implemented using Google Colab for our main analysis:
+This project contains 3 main parts implemented using Google Colab for our main analysis (within the ProjectCode folder):
 
 - Final_Project.ipynb: All components needed to load the dataset, run our model, fine-tune the model on the fashion dataset, and achieve the results as described in the final report.
 - Ablation.ipynb: All components needed to load the dataset, run our model, fine-tune the model on the fashion dataset, but instead – run the ablation analysis for our final report.
